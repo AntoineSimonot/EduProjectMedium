@@ -1,24 +1,27 @@
 import { useForm } from "react-hook-form";
 import { login, me } from './../Services/API'
 import { useNavigate } from "react-router-dom";
-import { GarbageContext } from '../Provider/GarbageProvider';
+import { UserContext } from '../Provider/UserProvider';
 import { useContext } from 'react';
 
 export default function LoginPage() {
 
+    
     let navigate = useNavigate();
 
-    const { setUser } = useContext(GarbageContext)
-
+    const { setUser } = useContext(UserContext)
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const { setConnected } = useContext(UserContext)
+
 
     return (
         <form onSubmit={handleSubmit(async (form) => {
             
             let response = await login(form)
-            if (response.data.token) {
+            if (response.status === 200) {
                 localStorage.setItem('token', response.data.token)
                 let userData = await me()
+                setConnected(true)
                 setUser(userData.data)
                 navigate('/articles')
             }

@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import ChangeUserForm from "../Components/Forms/ChangeUserForm";
-import { GarbageContext } from "../Provider/GarbageProvider";
+import { UserContext } from "../Provider/UserProvider";
 
 export default function UpdateUserPage() {
 
 
-    const { user } = useContext(GarbageContext)
+    const { user } = useContext(UserContext)
 
     return (
 

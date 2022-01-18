@@ -1,10 +1,10 @@
 import React from "react";
 import { useContext } from 'react';
-import { GarbageContext } from "../Provider/GarbageProvider";
 import SingleArticle from "../Components/SingleArticle";
+import { ArticleContext } from "../Provider/ArticleProvider";
 
 export default function ArticlePage() {
-    const { articles } = useContext(GarbageContext)
+    const { articles } = useContext(ArticleContext)
         
     return (
         <ul>

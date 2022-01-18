@@ -1,12 +1,12 @@
 import React, { useContext, useEffect } from 'react'
 import { useForm } from "react-hook-form";
-import { GarbageContext } from '../Provider/GarbageProvider';
+import { ArticleContext } from '../Provider/ArticleProvider';
 import { createArticle } from '../Services/API'
 
 export default function CreateArticlePage() {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const { categories } = useContext(GarbageContext)
+    const { categories } = useContext(ArticleContext)
     
     useEffect(() => {
         console.log(categories)

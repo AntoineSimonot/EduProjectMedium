@@ -7,11 +7,7 @@ function RequireAuth({ children }) {
 
     useEffect (() => {
         if (getToken() === null) {
-            console.log("Not logged in");
             navigate("/login");
-        }
-        else {
-            console.log("Logged in");
         }
     }, [navigate])
 

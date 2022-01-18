@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { GarbageContext } from "../../Provider/GarbageProvider";
+import { UserContext } from "../../Provider/UserProvider";
 import { me, updateUser } from "../../Services/API";
 
 
 function ChangeUserForm(params) {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { setUser } = useContext(GarbageContext)
+    const { setUser } = useContext(UserContext)
 
     return (
         <form onSubmit={handleSubmit(async (form) => {
